@@ -23,29 +23,26 @@ import com.example.domain.Car;
 import com.example.external.data.CarEntity;
 import com.example.external.data.CarRepository;
 
-import lombok.SneakyThrows;
-
 /**
  *  
  */
 @UseCase
 public class FindCar {
 
-    private final CarRepository carRepository;
+	private final CarRepository carRepository;
 
-    public FindCar(CarRepository carRepository) {
-        this.carRepository = carRepository;
-    }
+	public FindCar(CarRepository carRepository) {
+		this.carRepository = carRepository;
+	}
 
-    @SneakyThrows
-    public Optional<Car> findCar(String name) {
+	public Optional<Car> findCar(String name) {
 
-        CarEntity carEntity = carRepository.findByName(name);
+		CarEntity carEntity = carRepository.findByName(name);
 
-        if (carEntity != null) {
-            return Optional.ofNullable(new Car(carEntity.getName()));
-        }
+		if (carEntity != null) {
+			return Optional.ofNullable(new Car(carEntity.getName()));
+		}
 
-        return Optional.empty();
-    }
+		return Optional.empty();
+	}
 }
