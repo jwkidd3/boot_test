@@ -21,25 +21,37 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  *  
  */
 @Entity
 @Table(name = "CAR")
-@Data
-@NoArgsConstructor
 public class CarEntity {
+	public CarEntity(){}
 
-    @Id
-    @GeneratedValue
-    private Long id;
+	public Long getId() {
+		return id;
+	}
 
-    private String name;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public CarEntity(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Id
+	@GeneratedValue
+	private Long id;
+
+	private String name;
+
+	public CarEntity(String name) {
+		this.name = name;
+	}
 }

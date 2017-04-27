@@ -19,16 +19,35 @@ package com.example.domain;
 import java.math.BigDecimal;
 import java.util.Currency;
 
-import lombok.AllArgsConstructor;
-import lombok.Value;
-
 /**
  *  
  */
-@Value
-@AllArgsConstructor
 public class Money {
+	public Money() {
+	}
 
-    BigDecimal value;
-    Currency currency;
+	public Money(BigDecimal value, Currency currency) {
+		super();
+		this.value = value;
+		this.currency = currency;
+	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
+	BigDecimal value;
+	Currency currency;
 }
